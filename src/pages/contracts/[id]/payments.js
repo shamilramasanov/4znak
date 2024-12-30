@@ -7,10 +7,12 @@ import { Input } from '../../../shared/components/ui/Input';
 import { Table } from '../../../shared/components/ui/Table';
 import { colors } from '../../../core/theme/colors';
 import { formatMoney, formatDate } from '../../../shared/utils/format';
-import { PrismaClient } from '../../../lib/prisma';
+import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../../lib/prisma';
 import { cn } from '../../../utils/cn';
 
-const prisma = new PrismaClient();
+// Используем существующий экземпляр prisma вместо создания нового
+// const prisma = new PrismaClient();
 
 export default function ContractPayments({ contract, payments, totalPaid, remainingAmount }) {
   const router = useRouter();
